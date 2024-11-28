@@ -1,3 +1,38 @@
 ul li {
     color: red;
 }
+
+.bordoArrotondato{
+    border-radius: 30px;
+    height: 300px;
+}
+
+#box {
+    height:200px;
+    width: 200px;
+    margin:0 auto;
+    background-color:red;
+}
+
+.rounded{
+    border-radius: 20px;
+}
+
+.rotated{
+    rotate: 70deg;
+}
+
+.sbinna{
+    animation: spin 3s infinite linear;
+}
+
+.textcenter{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+}
+
+@keyframes spin{
+    from {transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
