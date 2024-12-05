@@ -1,13 +1,14 @@
 from flask import Flask, jsonify, request
 import psycopg2
 
-host="localhost"
+app = Flask(__name__)
+
+host="172.21.61.3" #cambia ogni riavvio della macchina ip addr ->inet 172.21.61.3/20 brd 172.21.63.255 scope global dynamic noprefixroute eth0
 port="5432"
 dbname="Academy"
 user='postgres'
 password="postgres"
 
-app = Flask(__name__)
 
 
 try:
@@ -63,7 +64,7 @@ def visualizzaRicercatore(ric_id):
     #recupero dati
     rows = cursor.fetchall()
     cursor.close()
-    return rows  
+    return jsonify(rows)  
 
 @app.route('/professori/<int:prof_id>')
 def visualizzaProfessore(prof_id):
@@ -73,7 +74,7 @@ def visualizzaProfessore(prof_id):
     #recupero dati
     rows = cursor.fetchall()
     cursor.close()
-    return rows 
+    return jsonify(rows) 
 
 
 
