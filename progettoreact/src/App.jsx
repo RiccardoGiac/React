@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Card from './components/Card.jsx'
+import Todolist from './components/Stato/Todolist.jsx'
+import UserProfile from './components/Stato/UserProfile.jsx'
+import Parent from './components/ChildtoParent/Parent.jsx'
 
 function alertClick(){
   alert("BELLA BRO")
@@ -95,8 +98,14 @@ function App() {
         isLetsgoski={item.isLetsgoski}
         descrizione={item.descrizione}>
         </Card>
+      
       ))
       }
+      <div>
+        <UserProfile></UserProfile>
+        <Parent></Parent>
+        <Todolist></Todolist>
+      </div>
 
       <div>
         <a href="https://vite.dev" target="_blank">
