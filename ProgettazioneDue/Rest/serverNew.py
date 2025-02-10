@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
 import psycopg2
+from flask_cors import CORS
 
 app = Flask(__name__)
 
-host="172.21.61.3" #cambia ogni riavvio della macchina ip addr ->inet 172.21.61.3/20 brd 172.21.63.255 scope global dynamic noprefixroute eth0
+CORS(app)
+host="172.29.244.5" #cambia ogni riavvio della macchina ip addr ->inet 172.21.61.3/20 brd 172.21.63.255 scope global dynamic noprefixroute eth0
 port="5432"
 dbname="Academy"
 user='postgres'
@@ -70,7 +72,7 @@ def visualizzaRicercatore(ric_id):
 def visualizzaProfessore(prof_id):
     cursor = connection.cursor()
     #eseguo query
-    cursor.execute("select * from ricercatori where professori.id = '" + prof_id +"'")
+    cursor.execute("select * from professori where professori.id = '" + prof_id +"'")
     #recupero dati
     rows = cursor.fetchall()
     cursor.close()

@@ -1,0 +1,7 @@
+useEffect(() => {
+  // Codice da eseguire
+
+  return () => {
+    // Funzione di cleanup (opzionale)
+  };
+}, [/* array di dipendenze */]);
