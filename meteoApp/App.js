@@ -66,11 +66,11 @@ export default function App() {
       <View style={styles.weaterContainer}>
         <Text style = {styles.cityName}>{city}</Text>
         <Text style = {styles.temperature}>{data.temp} °C</Text>
+        <Text style = {styles.description}>{data.condictions}</Text>
         <Image
           source={{uri:immagine}}
           style={{width: 200, height: 200}}
         />
-        <Text style = {styles.description}>{data.condictions}</Text>
         <View style = {styles.detailsContainer}>
           <Text style = {styles.details}>Umidità: {data.humidity} %</Text>
           <Text style = {styles.details}>Vento: {data.windspeed} km/h</Text>
