@@ -5,9 +5,9 @@ WORKDIR /Rest
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY serverNew.py .
+COPY server1.py .
 
 EXPOSE 5002
 
-CMD ["python", "serverNew.py"]
+CMD ["python", "server1.py"]
 

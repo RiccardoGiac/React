@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import "../styles.css";
-import Loader from "./Loader";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Loader from "./Loader"; // Importiamo il Loader
+import "./styles.css"; 
 
-const GetProf = () => {
-  const [professori, setUsers] = useState([]);
+const API_URL = "http://127.0.0.1:5002/";
+
+const TabellaProfessori = () => {
+  const [professori, setProfessori] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Effettua la chiamata HTTP con axios
-    axios
-      .get('http://127.0.0.1:5002/professori')
-      .then((response) => {
-        setUsers(response.data);  // Imposta i dati nel state
-        setLoading(false);         // Rimuove il caricamento
+    axios.get(`${API_URL}/professori`)
+      .then(response => {
+        setProfessori(response.data);
+        setLoading(false);
       })
-      .catch((error) => {
-        setError(error.message);  // Gestisce gli errori
+      .catch(error => {
+        console.error("Errore nel caricamento dei dati:", error);
         setLoading(false);
       });
-
-      
-  }, []); // L'array vuoto fa sì che la chiamata HTTP venga eseguita solo una volta
-
-  if (error) return <p>Errore: {error}</p>;
+  }, []);
 
   return (
     <div className="tabella-container">
@@ -55,4 +50,4 @@ const GetProf = () => {
   );
 };
 
-export default GetProf;
+export default TabellaProfessori;

@@ -11,7 +11,7 @@ const PostListScreen = ({ navigation }) => {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/posts');
+      const response = await axios.get('http://localhost:5002/posts');
       setPosts(response.data);
     } catch (error) {
       console.error(error);

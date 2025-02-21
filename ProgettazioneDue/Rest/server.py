@@ -19,28 +19,24 @@ ricercatori = [
 def home():
     return """
     <h1>Benvenuto nella nostra Accademia!</h1>
-    <p>Usa <a href='/api/professori'>/api/professori</a> per visualizzare tutti i professori</p>
-    <p>Usa /api/professori/[id] per visualizzare un professore specifico</p>
-    <p>Usa <a href='/api/ricercatori'>/api/ricercatori</a> per visualizzare tutti i ricercatori</p>
-    <p>Usa /api/ricercatori/[id] per visualizzare un ricercatore specifico</p>
     """
 
-@app.route('/api/professori')
+@app.route('/professori')
 def getprofessori():
     return jsonify(professori)
 
-@app.route('/api/professori/<int:prof_id>')
+@app.route('/professori/<int:prof_id>')
 def getprofessore(prof_id):
     prof = next((prof for prof in professori if prof["id"] == prof_id), None)
     if prof:
         return jsonify(prof)
     return jsonify({"error": "Professore non trovato"}), 404
 
-@app.route('/api/ricercatori')
+@app.route('/ricercatori')
 def getricercatori():
     return jsonify(ricercatori)
 
-@app.route('/api/ricercatori/<int:ric_id>')
+@app.route('/ricercatori/<int:ric_id>')
 def getricercatore(ric_id):
     ric = next((ric for ric in ricercatori if ric["id"] == ric_id), None)
     if ric:
