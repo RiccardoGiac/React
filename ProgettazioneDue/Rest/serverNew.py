@@ -58,6 +58,13 @@ def visualizzaProfessori():
     cursor.close()
     return rows
 
+@app.route("/api/ricercatori/<int:id>", methods=["GET"])
+def get_ricercatore_by_id(id):
+    cursor = connection.cursor()
+    cursor.execute(f"select * from ricercatori where id == {id}")
+    row = cursor.fetchone()
+    cursor.close()
+    return row
 
 
 
