@@ -1,7 +1,8 @@
-from flask import Flask, jsonify, request
-import sys
+from flask import Flask, jsonify
+from flask_cors import CORS  
 
-app = Flask (__name__)
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})  
 
 professori = [
     {"id": 1, "nome": "Paolo", "cognome": "Rossi"},
@@ -23,6 +24,7 @@ def home():
 
 @app.route('/professori')
 def getprofessori():
+    
     return jsonify(professori)
 
 @app.route('/professori/<int:prof_id>')
